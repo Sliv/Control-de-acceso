@@ -1,24 +1,41 @@
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Usuario {
     private int idUsuario;
-    private String Nombre;
+    private String Nombre, Apellido;
     private String Email;
     private String Password;
+    private String codigoQR; // Esto se va a tener que cambiar.
+    private boolean accesoHabilitado;
+    private LocalDate fechaRegistro;
     private ArrayList<Roles> Roles; 
 
-    // Constructor
-    public Usuario(int idUsuario, String Nombre, String Email, String Password, ArrayList<Roles> Roles) {
+    public Usuario(int idUsuario, String Nombre, String Apellido, String codigoQR, LocalDate fechaRegistro, String Email, String Password, ArrayList<Roles> Roles) {
         this.idUsuario = idUsuario;
         this.Nombre = Nombre;
+        this.Apellido = Apellido;
         this.Email = Email;
+        this.codigoQR = codigoQR;
+        this.fechaRegistro = fechaRegistro;
         this.Password = Password;
         this.Roles = Roles;
     }
+    
+    public void crearCuenta() {
+    
+    }
+    
+    public void Login() {
+    
+    }
+    
+    public void Logout() {
+        
+    }
 
-    // Getters y setters
     public int getIdUsuario() {
         return idUsuario;
     }

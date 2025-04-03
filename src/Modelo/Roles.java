@@ -3,5 +3,7 @@ package Modelo;
 public enum Roles {
     PROFESOR,
     ESTUDIANTE,
-    ADMINISTRATIVO;
+    E_ADMINISTRATIVO,
+    E_LIMPIEZA,
+    E_CAFETERIA;
 }

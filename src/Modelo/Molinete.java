@@ -1,49 +1,37 @@
 package Modelo;
 
 public class Molinete {
-    private int idMolinete;
+    static private boolean Estado;
+    static private int IDMolinete;
     private String Ubicacion; 
 
-    // Constructor
     public Molinete(int idMolinete, String Ubicacion) {
-        this.idMolinete = idMolinete;
+        this.Estado = false;
+        this.IDMolinete = idMolinete;
         this.Ubicacion = Ubicacion;
     }
 
-    // Método para validar el acceso
     public boolean validarAcceso(Usuario Usuario) {
-        // Obtener los roles y permisos del usuario y verificar si tiene permiso para acceder
-        for (Roles rol : Usuario.getRoles()) {
-            // Dependiendo del rol, el usuario tendrá acceso a diferentes zonas
-            if (rol.equals("PROFESOR")) {
-                // Los profesores pueden acceder a todas las zonas
-                return true;
-            }
-            if (rol.equals("ESTUDIANTE")) {
-                // Los estudiantes solo pueden acceder a ciertas zonas
-                if (this.Ubicacion.equalsIgnoreCase("Acceso a laboratorios")) {
-                    return false; // Por ejemplo, no pueden acceder al laboratorio
-                }
-                return true; // Tienen acceso a otras zonas
-            }
-            if (rol.equals("LIMPIEZA")) {
-                // Los empleados de limpieza pueden acceder solo a ciertas zonas
-                if (this.Ubicacion.equalsIgnoreCase("Acceso a oficinas")) {
-                    return false;
-                }
-                return true; // Acceso a otras zonas
-            }
-        }
-        return false; // No tiene un rol válido o no cumple las condiciones
+ 
+        return false; 
     }
-
-    // Getters y setters
+    
+    static public void Abrir() {
+        Estado = true;
+        System.out.println("Molinete abierto.");
+    }
+    
+    static public void Cerrar() {
+        Estado = false;
+        System.out.println("Molinete cerrado.");
+    }
+   
     public int getIdMolinete() {
-        return idMolinete;
+        return IDMolinete;
     }
 
     public void setIdMolinete(int idMolinete) {
-        this.idMolinete = idMolinete;
+        this.IDMolinete = idMolinete;
     }
 
     public String getUbicacion() {
@@ -53,4 +41,13 @@ public class Molinete {
     public void setUbicacion(String Ubicacion) {
         this.Ubicacion = Ubicacion;
     }
+
+    public boolean getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
+    }
+    
 }
